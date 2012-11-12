@@ -1,0 +1,1 @@
+﻿////  TimeBar.h//  MoonHerder////  Created by Roger Engelbert on 10/9/12.//  Copyright Done With Computers 2012. All rights reserved.//	#import "Bar.h"@interface TimeBar : Bar {    float _timeDecrement;}@end	
