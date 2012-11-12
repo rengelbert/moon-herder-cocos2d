@@ -70,8 +70,7 @@
         [stars setPosition:ccp(number.x + number.width * 1.2 + stars.textureRect.size.width * 0.5f, number.y)];
         [_menu addChild:stars ];
     }
-    
-
+  
     
     [_game addChild:self];
 	[self addStars];
