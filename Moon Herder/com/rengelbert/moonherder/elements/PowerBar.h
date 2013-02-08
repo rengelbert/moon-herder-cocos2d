@@ -1,1 +1,0 @@
-﻿////  PowerBar.h//  MoonHerder////  Created by Roger Engelbert on 10/9/12.//  Copyright Done With Computers 2012. All rights reserved.//	#import "Bar.h"@interface PowerBar : Bar {        @private    int _blinkLength;    int _blinkCount;    int _boostCnt;    float _boost;    }@property int boostCnt;@end			
