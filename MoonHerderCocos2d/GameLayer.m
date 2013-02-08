@@ -439,7 +439,6 @@
     
 	//identify cell in array
 	Star * star = [_manager starFromPool:row * _manager.columns + col];
-    //CCLOG ("COL: %i  ROW: %i", col, row);
     
     if (star.visible) {
         
@@ -620,6 +619,11 @@ Star * star;
     _lineHitParticles = [CCParticleSystemQuad particleWithFile:@"line_burst.plist"];
     _groundHitParticles = [CCParticleSystemQuad particleWithFile:@"off_screen.plist"];
     _starHitParticles  = [CCParticleSystemQuad particleWithFile:@"star_burst.plist"];
+    
+    _boostHitParticles.scale *= _manager.gameScale;
+    _lineHitParticles.scale *= _manager.gameScale;
+    _groundHitParticles.scale *= _manager.gameScale;
+    _starHitParticles.scale *= _manager.gameScale;
     
     [_boostHitParticles stopSystem];
     [_lineHitParticles stopSystem];

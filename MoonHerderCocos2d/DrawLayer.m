@@ -26,7 +26,7 @@
         _manager = [GameManager sharedGameManager];
         _screenSize = [[CCDirector sharedDirector] winSize];
 
-		glLineWidth(LINE_THICKNESS * CC_CONTENT_SCALE_FACTOR());
+		glLineWidth(LINE_THICKNESS * _manager.gameScale);
  
 		//_blinking = false;
 		_blinkTimer = 0;
@@ -43,7 +43,7 @@
 
 	[super draw];
 	
-	glLineWidth(LINE_THICKNESS * CC_CONTENT_SCALE_FACTOR());
+	glLineWidth(LINE_THICKNESS  * _manager.gameScale);
 	//draw lines
 	CCArray * lines = _manager.lines;
 	
@@ -79,15 +79,15 @@
         !CGPointEqualToPoint(_touchPoint, CGPointZero)) {
         ccDrawColor4F(0.0, 0.0, 0.0, 1.0);
         
-        ccDrawCircle(_startPoint, 5  * CC_CONTENT_SCALE_FACTOR(), CC_DEGREES_TO_RADIANS(360), 10, false);
+        ccDrawCircle(_startPoint, 5 * _manager.gameScale, CC_DEGREES_TO_RADIANS(360), 10, false);
         
-        ccDrawCircle(_touchPoint, 5  * CC_CONTENT_SCALE_FACTOR(), CC_DEGREES_TO_RADIANS(360), 10, false);
+        ccDrawCircle(_touchPoint, 5 * _manager.gameScale, CC_DEGREES_TO_RADIANS(360), 10, false);
             
         ccDrawLine(_startPoint, _touchPoint);
         
     }
 	
-	glLineWidth(BAR_THICKNESS  * CC_CONTENT_SCALE_FACTOR());
+	glLineWidth(BAR_THICKNESS * _manager.gameScale);
 
 	//draw time bar
 	[self drawBar:HORIZONTAL];
@@ -196,7 +196,7 @@
         
         if (i != 0)
 
-        ccDrawCircle(previous, 2.2   * CC_CONTENT_SCALE_FACTOR(), M_PI, 6 * CC_CONTENT_SCALE_FACTOR(), false);
+        ccDrawCircle(previous, 2.2  * _manager.gameScale, M_PI, 6, false);
         
         ccDrawLine(previous, ccp (x_, y_) );
         previous = ccp(x_, y_);

@@ -9,11 +9,10 @@
 #import "GameConfig.h"
 
 @class Moon;
-@class GameManager;
 
 @interface Line : NSObject {
     
-    GameManager * _manager;
+
 
 	BOOL _active;
 	BOOL _trashme;

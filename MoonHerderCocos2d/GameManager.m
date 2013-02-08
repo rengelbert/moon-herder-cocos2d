@@ -75,13 +75,9 @@ timeDecrement = _timeDecrement, lineEnergy = _lineEnergy, time = _time, gameScal
     
     
 		//create grid cells
-		_cols = (int) screenSize.width /  (TILE * CC_CONTENT_SCALE_FACTOR());
-		_rows = (int) screenSize.height * 0.9f/  (TILE * CC_CONTENT_SCALE_FACTOR());
+		_cols = (int) screenSize.width /  (TILE * _gameScale);
+		_rows = (int) screenSize.height * 0.9f/  (TILE * _gameScale);
         
-        CCLOG(@"HAHAHAHAHAHAHAHAHAHAHAHAHHAAHHAHAHAHA");
-        CCLOG(@"SCREEN  %f   %f", screenSize.width, screenSize.height);
-        CCLOG(@"COLS  %i", (int) screenSize.width / (TILE * CC_CONTENT_SCALE_FACTOR()));
-        CCLOG(@"COLS ROWS : %i %i", _cols, _rows);
         _gridCells = [[NSMutableArray arrayWithCapacity:_cols * _rows] retain];
         
 		//create grid
@@ -222,7 +218,6 @@ timeDecrement = _timeDecrement, lineEnergy = _lineEnergy, time = _time, gameScal
     if (_boosting) {
         _lineEnergy += 0.03 * dt * _boostSpeed;
         if (_lineEnergy > 1) _lineEnergy = 1;
-        
     }
 }
 

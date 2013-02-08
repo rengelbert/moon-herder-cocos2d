@@ -120,7 +120,7 @@ curve = _curve,  collisionPoint = _collisionPoint;
 		_blinking = true;
 		if (_activeInterval < LINE_TIME_ACTIVE * LINE_TIME_CURVING) _activeInterval = LINE_TIME_ACTIVE * LINE_TIME_CURVING;
 		
-        float bounce = LINE_BOUNCE / CC_CONTENT_SCALE_FACTOR();
+        float bounce = LINE_BOUNCE / [GameManager sharedGameManager].gameScale;
         moon.vector = ccp( bounce * _length * normal.x,
                            bounce * _length * normal.y);
 		
@@ -128,8 +128,10 @@ curve = _curve,  collisionPoint = _collisionPoint;
                               moon.position.y + t * moonDiffY);
 		_curve = _collisionPoint;
 		
-		_curve.x -= LINE_CURVE_AMOUNT *  normal.x;
-		_curve.y -= LINE_CURVE_AMOUNT *  normal.y;
+		_curve.x -= (int) LINE_CURVE_AMOUNT * [GameManager sharedGameManager].gameScale * normal.x;
+		_curve.y -= (int) LINE_CURVE_AMOUNT * [GameManager sharedGameManager].gameScale * normal.y;
+        
+        CCLOG(@"CURVE : %i",[GameManager sharedGameManager].gameScale);
         
 		_curveState = 1;
         

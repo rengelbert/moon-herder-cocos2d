@@ -42,7 +42,7 @@
 
 -(void) update:(float) dt {
 
-    dt *= CC_CONTENT_SCALE_FACTOR();
+    dt *= _manager.gameScale;
     
 	_starsUpdateTimer += dt;
     
@@ -95,9 +95,9 @@
             [[CCDirector sharedDirector] replaceScene:newScene];
             
         } else if (CGRectContainsPoint(boundsHelp, tap)) {
-            /*CCScene * newScene = [CCTransitionFlipY transitionWithDuration:0.5f scene:[HelpLayer scene] orientation:kOrientationUpOver];
+            CCScene * newScene = [CCTransitionFlipY transitionWithDuration:0.5f scene:[HelpLayer scene] orientation:kOrientationUpOver];
             [[CCDirector sharedDirector] replaceScene:newScene];
-            */
+            
         }
 	}
 }
@@ -186,8 +186,8 @@
         }
     
         //grab position from selected Grid Cell
-        position.x = (int) (starPosition.x * TILE * CC_CONTENT_SCALE_FACTOR());
-        position.y = (int) (_screenSize.height - starPosition.y * TILE * CC_CONTENT_SCALE_FACTOR());
+        position.x = (int) (starPosition.x * TILE * _manager.gameScale);
+        position.y = (int) (_screenSize.height - starPosition.y * TILE * _manager.gameScale);
         
         
         //
@@ -198,7 +198,6 @@
             continue;
         }
         
-        //CCLOG(@"POSITION X: %f,  Y: %f", position.x, position.y);
         
         //grab star from pool
         star = (Star *) [_manager starFromPool:index];

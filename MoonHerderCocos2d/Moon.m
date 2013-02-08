@@ -46,7 +46,7 @@
 
 -(void) update:(float) dt {
 	
-    _vector.y -= GRAVITY;
+    _vector.y -= 0.2f;
     
 	[self limitSpeeds];
 	

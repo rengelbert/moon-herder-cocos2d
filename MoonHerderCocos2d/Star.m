@@ -13,8 +13,11 @@
 static int *types;
 static int TYPE_INDEX = 0;
 
+
 @implementation Star
 
+
+@synthesize isBoost = _boost;
 
 -(void) dealloc {
     
@@ -32,7 +35,7 @@ static int TYPE_INDEX = 0;
 }
 
 -(id) init {
-	self = [super initWithFrameName:@"star_1.png" withRadius:4 * CC_CONTENT_SCALE_FACTOR()];
+	self = [super initWithFrameName:@"star_1.png" withRadius:4];
 	if (self) {
         types = malloc( 16 * sizeof(int));
         types[0] = 4;
@@ -58,10 +61,11 @@ static int TYPE_INDEX = 0;
 
 
 -(void) setValues:(CGPoint) position boost:(BOOL) boost {
-	_boost = boost;
-	int r;
-    
 	
+    _boost = boost;
+	
+    int r;
+    
 	if (boost) {
 		[self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"boost.png"] ];
         
@@ -92,8 +96,8 @@ static int TYPE_INDEX = 0;
     
    
 	//offset the stars a bit, so as to get rid of the "Grid Cell" look
-    CGPoint p = ccp(position.x + (random_range * r * 0.5f) ,
-                    position.y + (random_range * r * 0.5f));
+    CGPoint p = ccp(position.x + (random_range * r * 0.5f) * [GameManager sharedGameManager].gameScale,
+                    position.y + (random_range * r * 0.5f) * [GameManager sharedGameManager].gameScale);
     
 	//if too close to the sides, move stars a bit
 	if (p.x < 10) p.x = 10;

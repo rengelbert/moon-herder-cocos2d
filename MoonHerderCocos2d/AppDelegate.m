@@ -74,9 +74,9 @@
     
     CGSize screenSize = [director_ winSize];
     if (screenSize.width > 768) {
-        [director_ setContentScaleFactor:4.0];
+        [director_ setContentScaleFactor:1.0];
     } else if (screenSize.width > 320) {
-        [director_ setContentScaleFactor:2.0];
+        [director_ setContentScaleFactor:1.0];
     } else {
         [director_ setContentScaleFactor:1.0];
         
