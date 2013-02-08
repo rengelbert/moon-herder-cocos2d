@@ -72,19 +72,6 @@
     [sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];
     
     
-    CGSize screenSize = [director_ winSize];
-    if (screenSize.width > 768) {
-        [director_ setContentScaleFactor:1.0];
-    } else if (screenSize.width > 320) {
-        [director_ setContentScaleFactor:1.0];
-    } else {
-        [director_ setContentScaleFactor:1.0];
-        
-    }
-     
-    //CCLOG (@" WIDTH:  %f  HEIGHT: %f", screenSize.width, screenSize.height);
-    
-    
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"boost_hit.wav"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"ground_hit.wav"];
